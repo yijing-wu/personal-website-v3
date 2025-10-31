@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Title } from "../../MyLibrary";
 import FeaturedProjects from "./FeaturedProjects";
 import OtherProjects from "./OtherProjects";

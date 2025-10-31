@@ -1,5 +1,3 @@
-import React from "react";
-
 import MUIButton from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 

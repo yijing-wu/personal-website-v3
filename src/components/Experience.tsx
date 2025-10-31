@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import * as GoogleAnalytics from "../config/GoogleAnalytics";
 import { Text, Title } from "../MyLibrary";

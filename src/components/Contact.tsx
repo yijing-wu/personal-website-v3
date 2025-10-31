@@ -1,5 +1,3 @@
-import React from "react";
-
 import * as GoogleAnalytics from "../config/GoogleAnalytics";
 import { Button, Text } from "../MyLibrary";
 import {

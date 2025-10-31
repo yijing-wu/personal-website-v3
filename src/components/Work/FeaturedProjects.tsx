@@ -1,5 +1,3 @@
-import React from "react";
-
 import { FeaturedProjectsData } from "../../assets/projectsData";
 import FeaturedProjectWidget from "./FeaturedProjectWidget";
 

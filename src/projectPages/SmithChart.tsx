@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import { smithChart } from "../assets/projectsData";
 
 import { BackButton, Text } from "../MyLibrary";

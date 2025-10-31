@@ -1,4 +1,3 @@
-import React from "react";
 import { myMilkYellow, myNavy } from "../MyLibrary/MyColors";
 import { Text } from "../MyLibrary";
 

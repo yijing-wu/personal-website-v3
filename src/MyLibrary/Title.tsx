@@ -1,5 +1,3 @@
-import React from "react";
-
 import { myMilkYellow30Alpha, myMintGreen } from "./MyColors";
 import Text from "./Text";
 

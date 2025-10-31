@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import Grid from "@mui/material/Grid";
 import FolderOutlinedIcon from "@mui/icons-material/FolderOutlined";
