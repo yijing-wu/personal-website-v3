@@ -63,7 +63,7 @@ const router = createBrowserRouter([
 
 export default function App() {
   useEffect(() => {
-    initGoogleAnalytics(process.env.GOOGLE_ANALYTICS_TRACKING_ID);
+    initGoogleAnalytics(import.meta.env.GOOGLE_ANALYTICS_TRACKING_ID);
   });
 
   return (
