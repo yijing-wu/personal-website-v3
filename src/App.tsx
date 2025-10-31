@@ -1,35 +1,84 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Grid from "@mui/material/Grid";
+
+import ErrorPage from "./error-page";
+
+import "./App.css";
+import NavBar from "./components/NavBar";
+import Experience from "./components/Experience";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import Work from "./components/Work";
+import About from "./components/About";
+import Home from "./components/Home";
+import Social from "./components/Social";
+import Archive from "./components/Archive";
+
+import {
+  CameraCalibration,
+  EEG,
+  IntelligentCars,
+  SmithChart,
+} from "./projectPages";
+import { initGoogleAnalytics } from "./config/GoogleAnalytics";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <div style={{ paddingLeft: 45, paddingRight: 45 }}>
+        <Home />
+        <About />
+        <Experience />
+        <Work />
+        <Contact />
+      </div>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/archive",
+    element: <Archive />,
+  },
+  // projects
+  {
+    path: "/smithchart",
+    element: <SmithChart />,
+  },
+  {
+    path: "/cameracalibration",
+    element: <CameraCalibration />,
+  },
+  {
+    path: "/eeg",
+    element: <EEG />,
+  },
+  {
+    path: "/intelligentcars",
+    element: <IntelligentCars />,
+  },
+]);
+
+export default function App() {
+  useEffect(() => {
+    initGoogleAnalytics(process.env.GOOGLE_ANALYTICS_TRACKING_ID);
+  });
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <NavBar />
+      <Grid container spacing={12}>
+        <Grid size={{ xs: 1 }}>
+          <Social />
+        </Grid>
+        <Grid size={{ xs: 10 }}>
+          <RouterProvider router={router} />
+          <Footer />
+        </Grid>
+        <Grid size={{ xs: 1 }}></Grid>
+      </Grid>
+    </div>
+  );
 }
-
-export default App
