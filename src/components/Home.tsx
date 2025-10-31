@@ -1,11 +1,8 @@
+// @ts-ignore: Unused variable
 import * as GoogleAnalytics from "../config/GoogleAnalytics";
-import { Button, Text } from "../MyLibrary";
-import {
-  myTextGrey,
-  myMilkYellowC0Alpha,
-  myMintGreen,
-} from "../MyLibrary/MyColors";
-import { myName, myTitle, myBriefIntro } from "../assets/myData";
+import { Text } from "../MyLibrary";
+import { myTextGrey, myMintGreen } from "../MyLibrary/MyColors";
+import { myName, myBriefIntro } from "../assets/myData";
 
 function Home() {
   return (

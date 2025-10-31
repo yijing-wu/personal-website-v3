@@ -29,7 +29,6 @@ export default function Links({
   mainLink,
   isMainLinkExternal = false,
   githubLink,
-  ...rest
 }: LinksProps) {
   const [linkMouseFocused, setLinkMouseFocused] = useState("none");
 

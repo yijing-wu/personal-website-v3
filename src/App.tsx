@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Grid from "@mui/material/Grid";
