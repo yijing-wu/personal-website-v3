@@ -5,22 +5,30 @@ import {
   myMilkYellowC0Alpha,
   myMintGreen,
 } from "../MyLibrary/MyColors";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 function Contact() {
+  const theme = useTheme();
+  const isSmDown = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMdDown = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <div
       id="contact"
       style={{
-        height: 500,
+        minHeight: 420,
         textAlign: "center",
-        marginLeft: 180,
-        marginRight: 180,
+        marginLeft: isMdDown ? 24 : 180,
+        marginRight: isMdDown ? 24 : 180,
+        paddingBottom: isSmDown ? 80 : 100,
+        paddingTop: isSmDown ? 80 : 100,
       }}
     >
       <Text
         style={{
           fontFamily: "SFMono-Medium",
-          fontSize: 16,
+          fontSize: isSmDown ? 14 : 16,
           color: myMintGreen,
           marginBottom: 10,
         }}
@@ -31,7 +39,7 @@ function Contact() {
       <Text
         style={{
           fontFamily: "Calibre-Semibold",
-          fontSize: 60,
+          fontSize: isSmDown ? 40 : 60,
           color: myMilkYellowC0Alpha,
           marginBottom: 10,
         }}
@@ -41,9 +49,10 @@ function Contact() {
       <Text
         style={{
           fontFamily: "Calibre-Regular",
-          fontSize: 20,
+          fontSize: isSmDown ? 17 : 20,
           color: myTextGrey,
           marginBottom: 30,
+          lineHeight: 1.6,
         }}
       >
         Thank you for taking the time to view my personal website. Whether you

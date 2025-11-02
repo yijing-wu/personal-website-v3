@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 
 import Grid from "@mui/material/Grid";
 import FolderOutlinedIcon from "@mui/icons-material/FolderOutlined";
@@ -11,8 +11,18 @@ import {
   myTextGrey,
 } from "../../MyLibrary/MyColors";
 
+interface OtherProjectInfo {
+  abbreviation: string;
+  title: string;
+  description: ReactNode;
+  tools: string[];
+  mainLink?: string;
+  isMainLinkExternal?: boolean;
+  githubLink?: string;
+}
+
 export interface OtherProjectCardProps {
-  project: any;
+  project: OtherProjectInfo;
 }
 
 export default function OtherProjectCard({ project }: OtherProjectCardProps) {
@@ -29,6 +39,9 @@ export default function OtherProjectCard({ project }: OtherProjectCardProps) {
           padding: 20,
           position: "relative",
           top: onCardMouseFocused ? -5 : 0,
+          display: "flex",
+          flexDirection: "column",
+          transition: "transform 0.2s ease",
         }}
         onMouseEnter={() => {
           setOnCardMouseFocuse(true);
@@ -81,7 +94,14 @@ export default function OtherProjectCard({ project }: OtherProjectCardProps) {
         >
           {project.title}
         </Text>
-        <Text style={{ color: myTextGrey, marginBottom: 30 }}>
+        <Text
+          style={{
+            color: myTextGrey,
+            marginBottom: 24,
+            lineHeight: 1.5,
+            fontSize: 15,
+          }}
+        >
           {project.description}
         </Text>
         <ul
@@ -90,15 +110,18 @@ export default function OtherProjectCard({ project }: OtherProjectCardProps) {
             fontSize: 13,
             color: myTextGrey,
             padding: 0,
-            position: "absolute",
-            bottom: 10,
+            marginTop: "auto",
+            listStyle: "none",
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 10,
           }}
         >
-          {project.tools.map((tool: any, index: any) => {
+          {project.tools.map((tool: string, index: number) => {
             return (
               <li
                 key={index}
-                style={{ display: "inline-block", marginRight: 10 }}
+                style={{ display: "inline-flex", marginRight: 0 }}
               >
                 {tool}
               </li>

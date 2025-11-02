@@ -7,6 +7,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 import {
   myLightNavy,
@@ -23,8 +25,12 @@ export default function Archive() {
     window.scrollTo(0, 0);
   });
 
+  const theme = useTheme();
+  const isSmDown = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMdDown = useMediaQuery(theme.breakpoints.down("md"));
+
   const tableHeadStyles = {
-    fontSize: 22,
+    fontSize: isSmDown ? 18 : 22,
     fontFamily: "Calibre-Semibold",
     color: myTextGrey,
   };
@@ -32,16 +38,16 @@ export default function Archive() {
   return (
     <div
       style={{
-        paddingTop: 150,
-        paddingBottom: 150,
-        paddingLeft: 10,
-        paddingRight: 10,
+        paddingTop: isSmDown ? 120 : 150,
+        paddingBottom: isSmDown ? 120 : 150,
+        paddingLeft: isSmDown ? 16 : 10,
+        paddingRight: isSmDown ? 16 : 10,
       }}
     >
       <Text
         style={{
           fontFamily: "Calibre-Semibold",
-          fontSize: 80,
+          fontSize: isSmDown ? 48 : 80,
           color: myMilkYellow,
         }}
       >
@@ -50,7 +56,7 @@ export default function Archive() {
       <Text
         style={{
           fontFamily: "SFMono-Regular",
-          fontSize: 16,
+          fontSize: isSmDown ? 14 : 16,
           color: myMintGreen,
           marginBottom: 80,
         }}
@@ -58,18 +64,23 @@ export default function Archive() {
         {"List of things I've worked on"}
       </Text>
 
-      <TableContainer component={Paper} style={{ backgroundColor: myNavy }}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <TableContainer
+        component={Paper}
+        style={{ backgroundColor: myNavy }}
+        sx={{ overflowX: "auto" }}
+      >
+        <Table
+          sx={{ minWidth: isMdDown ? 0 : 650 }}
+          size={isSmDown ? "small" : "medium"}
+          aria-label="archive table"
+        >
           <TableHead>
             <TableRow>
               <TableCell align="left" style={{ border: 0 }}>
                 <Text style={tableHeadStyles}>Year</Text>
               </TableCell>
               <TableCell align="left" style={{ border: 0 }}>
-                <Text style={tableHeadStyles}>Title</Text>
-              </TableCell>
-              <TableCell align="left" style={{ border: 0 }}>
-                <Text style={tableHeadStyles}>Made at</Text>
+                <Text style={tableHeadStyles}>Project</Text>
               </TableCell>
               <TableCell align="left" style={{ border: 0 }}>
                 <Text style={tableHeadStyles}>Built with</Text>
@@ -103,7 +114,7 @@ export default function Archive() {
                 <TableCell style={{ border: 0 }}>
                   <Text
                     style={{
-                      fontSize: 16,
+                      fontSize: isSmDown ? 14 : 16,
                       fontFamily: "SFMono-Medium",
                       color: myMintGreen,
                     }}
@@ -114,19 +125,12 @@ export default function Archive() {
                 <TableCell style={{ border: 0 }}>
                   <Text
                     style={{
-                      fontSize: 20,
+                      fontSize: isSmDown ? 18 : 20,
                       fontFamily: "Calibre-Medium",
                       paddingTop: 5,
                     }}
                   >
                     {project.title}
-                  </Text>
-                </TableCell>
-                <TableCell align="left" style={{ border: 0 }}>
-                  <Text
-                    style={{ fontSize: 18, color: myTextGrey, paddingTop: 5 }}
-                  >
-                    {project.location}
                   </Text>
                 </TableCell>
                 <TableCell align="left" style={{ border: 0 }}>
@@ -138,16 +142,18 @@ export default function Archive() {
                       listStyle: "none",
                       padding: 0,
                       margin: 0,
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: 10,
                     }}
                   >
-                    {project.tools.map((tool, index) => {
+                    {project.tools.map((tool: string, index: number) => {
                       return (
                         <li
                           key={index}
                           style={{
-                            display: "inline",
-                            marginRight: 10,
-                            float: "left",
+                            display: "inline-flex",
+                            marginRight: 0,
                           }}
                         >
                           {tool}

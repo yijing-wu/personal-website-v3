@@ -1,16 +1,21 @@
-// @ts-ignore: Unused variable
-import * as GoogleAnalytics from "../config/GoogleAnalytics";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+
 import { Text } from "../MyLibrary";
 import { myTextGrey, myMintGreen } from "../MyLibrary/MyColors";
 import { myName, myBriefIntro } from "../assets/myData";
 
 function Home() {
+  const theme = useTheme();
+  const isTabletDown = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <div
       id="head"
       style={{
-        paddingTop: 200,
-        paddingBottom: 150,
+        paddingTop: isMobile ? 120 : isTabletDown ? 160 : 200,
+        paddingBottom: isMobile ? 100 : isTabletDown ? 120 : 150,
       }}
     >
       <Text
@@ -22,7 +27,14 @@ function Home() {
       >
         Hi, this is
       </Text>
-      <Text style={{ fontFamily: "Calibre-Semibold", fontSize: 80 }}>
+      <Text
+        style={{
+          fontFamily: "Calibre-Semibold",
+          fontSize: isMobile ? 48 : isTabletDown ? 64 : 80,
+          lineHeight: 1.05,
+          paddingBottom: 20,
+        }}
+      >
         {myName}
       </Text>
       {/* <Text
@@ -34,8 +46,19 @@ function Home() {
       >
         {myTitle}
       </Text> */}
-      <div style={{ width: "65%", marginBottom: 30 }}>
-        <Text style={{ fontSize: 24, color: myTextGrey, lineHeight: 1.3 }}>
+      <div
+        style={{
+          width: isTabletDown ? "100%" : "65%",
+          marginBottom: 30,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: isMobile ? 18 : 24,
+            color: myTextGrey,
+            lineHeight: 1.5,
+          }}
+        >
           {myBriefIntro}
         </Text>
       </div>

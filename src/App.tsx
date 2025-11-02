@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 
 import ErrorPage from "./error-page";
 
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <div style={{ paddingLeft: 45, paddingRight: 45 }}>
+      <div className="page-wrapper">
         <Home />
         <About />
         <Experience />
@@ -63,20 +64,43 @@ const router = createBrowserRouter([
 export default function App() {
   useEffect(() => {
     initGoogleAnalytics(import.meta.env.GOOGLE_ANALYTICS_TRACKING_ID);
+    // do not git add this line!
+    // initGoogleAnalytics("G-SQZC7GDC3X");
   });
 
   return (
     <div className="App">
       <NavBar />
-      <Grid container spacing={12}>
-        <Grid size={{ xs: 1 }}>
+      <Grid
+        container
+        spacing={{ xs: 0, md: 4 }}
+        sx={{
+          maxWidth: 1200,
+          margin: "0 auto",
+          paddingTop: { xs: 10, sm: 12 },
+          paddingLeft: { xs: 0, md: 0 },
+          paddingRight: { xs: 0, md: 0 },
+        }}
+      >
+        <Grid
+          size={{ xs: 12, md: 1 }}
+          sx={{
+            display: { xs: "none", md: "flex" },
+            justifyContent: "flex-start",
+          }}
+        >
           <Social />
         </Grid>
-        <Grid size={{ xs: 10 }}>
-          <RouterProvider router={router} />
-          <Footer />
+        <Grid size={{ xs: 12, md: 10 }}>
+          <Box sx={{ paddingBottom: 6 }}>
+            <RouterProvider router={router} />
+            <Footer />
+          </Box>
         </Grid>
-        <Grid size={{ xs: 1 }}></Grid>
+        <Grid
+          size={{ xs: 12, md: 1 }}
+          sx={{ display: { xs: "none", md: "block" } }}
+        ></Grid>
       </Grid>
     </div>
   );

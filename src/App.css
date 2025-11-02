@@ -1,3 +1,16 @@
+/* Layout helpers */
+.page-wrapper {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+@media (max-width: 900px) {
+  .page-wrapper {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
 /* NavBar */
 .navbar-item {
   color: #9a9a9a; /* myTextGrey */
@@ -11,23 +24,35 @@
 /* About */
 
 #about .education-list,
-.skills-list {
-  width: 460px;
+#about .skills-list {
+  width: 100%;
   margin: 0;
-  margin-top: 3px;
+  margin-top: 12px;
   padding: 0;
+  list-style: none;
+}
+
+#about .education-list li + li {
+  margin-top: 16px;
+}
+
+#about .skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px 16px;
 }
 
 #about .skills-list li {
-  width: 230px;
-  float: left;
-  display: block;
+  width: auto;
+  display: flex;
+  align-items: center;
 }
 
 #about .skills-list li::before {
   content: "◇";
   line-height: 10px;
   color: #c2ded1d2; /* myMintGreen */
+  margin-right: 8px;
 }
 
 /* Experience */
@@ -117,4 +142,10 @@
 
 .underline-animation:hover::before {
   transform: scaleX(1);
+}
+
+@media (max-width: 900px) {
+  .underline-animation::before {
+    height: 2px;
+  }
 }
