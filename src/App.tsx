@@ -23,45 +23,42 @@ import {
 } from "./projectPages";
 import { initGoogleAnalytics } from "./config/GoogleAnalytics";
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: (
-        <div style={{ paddingLeft: 45, paddingRight: 45 }}>
-          <Home />
-          <About />
-          <Experience />
-          <Work />
-          <Contact />
-        </div>
-      ),
-      errorElement: <ErrorPage />,
-    },
-    {
-      path: "/archive",
-      element: <Archive />,
-    },
-    // projects
-    {
-      path: "/smithchart",
-      element: <SmithChart />,
-    },
-    {
-      path: "/cameracalibration",
-      element: <CameraCalibration />,
-    },
-    {
-      path: "/eeg",
-      element: <EEG />,
-    },
-    {
-      path: "/intelligentcars",
-      element: <IntelligentCars />,
-    },
-  ],
-  { basename: "/personal-website-3" }
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <div style={{ paddingLeft: 45, paddingRight: 45 }}>
+        <Home />
+        <About />
+        <Experience />
+        <Work />
+        <Contact />
+      </div>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/archive",
+    element: <Archive />,
+  },
+  // projects
+  {
+    path: "/smithchart",
+    element: <SmithChart />,
+  },
+  {
+    path: "/cameracalibration",
+    element: <CameraCalibration />,
+  },
+  {
+    path: "/eeg",
+    element: <EEG />,
+  },
+  {
+    path: "/intelligentcars",
+    element: <IntelligentCars />,
+  },
+]);
 
 export default function App() {
   useEffect(() => {
