@@ -6,6 +6,7 @@ import CameraCalibrationProfile from "./projects/camera-calibration.png";
 import CircleDjangoProfile from "./projects/circle.png";
 import CourseSelectionProfile from "./projects/courseSelection.png";
 import EEGProfile from "./projects/eeg.png";
+import JingleCardProfile from "./projects/jingleCard.png";
 import IntelligentCarsProfile from "./projects/intelligentCars.png";
 import PersonalWebsiteProfile from "./projects/personalWebsite2022.png";
 import RubiksCubeProfile from "./projects/rubiks-cube.png";
@@ -272,6 +273,30 @@ const eeg = {
   githubLink: "",
 };
 
+const jingleCard = {
+  title: "Jingle Card",
+  abbreviation: "jingleCard",
+  picture: JingleCardProfile,
+  year: 2025,
+  location: "-",
+  description:
+    "A web game that turns collected musical notes into personalized melodies and Gen AI-polished greeting cards using LLM models. Built with React and Three.js, it uses AWS (Lambda, S3, CloudFront, API Gateway, Bedrock, SES) to generate, store, and send shareable music cards.",
+  tools: [
+    "React,",
+    "Three.js,",
+    "AWS S3,",
+    "CloudFront,",
+    "Lambda (Python),",
+    "API Gateway,",
+    "Bedrock,",
+    "SES,",
+    "GitHub Actions",
+  ],
+  mainLink: "https://devpost.com/software/jinglecard",
+  isMainLinkExternal: true,
+  githubLink: "https://github.com/wuqiujie/AWS_Game_Challenge",
+};
+
 const personalWebsiteV2 = {
   title: "Personal Website V2",
   abbreviation: "personalWebsiteV2",
@@ -433,6 +458,7 @@ const stockTrackingApplication = {
 
 // export components
 const FeaturedProjectsData = [
+  jingleCard,
   circleDjango,
   rubikCubeHelper,
   cameraCalibration,
