@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 
@@ -24,42 +23,45 @@ import {
 } from "./projectPages";
 import { initGoogleAnalytics } from "./config/GoogleAnalytics";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <div style={{ paddingLeft: 45, paddingRight: 45 }}>
-        <Home />
-        <About />
-        <Experience />
-        <Work />
-        <Contact />
-      </div>
-    ),
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/archive",
-    element: <Archive />,
-  },
-  // projects
-  {
-    path: "/smithchart",
-    element: <SmithChart />,
-  },
-  {
-    path: "/cameracalibration",
-    element: <CameraCalibration />,
-  },
-  {
-    path: "/eeg",
-    element: <EEG />,
-  },
-  {
-    path: "/intelligentcars",
-    element: <IntelligentCars />,
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: (
+        <div style={{ paddingLeft: 45, paddingRight: 45 }}>
+          <Home />
+          <About />
+          <Experience />
+          <Work />
+          <Contact />
+        </div>
+      ),
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/archive",
+      element: <Archive />,
+    },
+    // projects
+    {
+      path: "/smithchart",
+      element: <SmithChart />,
+    },
+    {
+      path: "/cameracalibration",
+      element: <CameraCalibration />,
+    },
+    {
+      path: "/eeg",
+      element: <EEG />,
+    },
+    {
+      path: "/intelligentcars",
+      element: <IntelligentCars />,
+    },
+  ],
+  { basename: "/personal-website-3" }
+);
 
 export default function App() {
   useEffect(() => {
