@@ -1,3 +1,6 @@
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+
 import { myMilkYellow30Alpha, myMintGreen } from "./MyColors";
 import Text from "./Text";
 
@@ -12,9 +15,12 @@ export default function Title({
   index = 1,
   content,
   style,
-  children,
   ...rest
 }: TitleProps) {
+  const theme = useTheme();
+  const isSmDown = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMdDown = useMediaQuery(theme.breakpoints.down("md"));
+
   const titleStyle = {
     margin: 0,
     padding: 0,
@@ -26,7 +32,7 @@ export default function Title({
       <Text
         style={{
           fontFamily: "SFMono-Regular",
-          fontSize: 20,
+          fontSize: isSmDown ? 16 : 20,
           color: myMintGreen,
           marginRight: 10,
         }}
@@ -34,8 +40,8 @@ export default function Title({
       <Text
         style={{
           fontFamily: "Calibre-Semibold",
-          fontSize: 32,
-          lineHeight: 0.9,
+          fontSize: isSmDown ? 22 : isMdDown ? 26 : 32,
+          lineHeight: 1,
           marginRight: 20,
         }}
       >
@@ -43,7 +49,7 @@ export default function Title({
       </Text>
       <div
         style={{
-          width: "35%",
+          width: isSmDown ? "20%" : "35%",
           height: 1,
           backgroundColor: myMilkYellow30Alpha,
           marginTop: 10,
