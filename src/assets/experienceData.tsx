@@ -1,4 +1,4 @@
-import { highlightStyle } from "../MyLibrary/MyStyles";
+import Highlight from "../components/atoms/Highlight";
 
 const jobsData = [
   {
@@ -15,19 +15,17 @@ const jobsData = [
       </div>,
       <div>
         Designed and deployed an on-demand AWS platform (EC2, Lambda, S3,
-        DynamoDB) with secure APIs via{" "}
-        <div style={highlightStyle}>Azure AD</div>
+        DynamoDB) with secure APIs via <Highlight>Azure AD</Highlight>
       </div>,
       <div>
-        Developed a <div style={highlightStyle}>Jenkins plugin</div> and
-        automated image baking with <div style={highlightStyle}>Ansible</div> &{" "}
-        <div style={highlightStyle}>Spinnaker</div>
+        Developed a <Highlight>Jenkins plugin</Highlight> and automated image
+        baking with <Highlight>Ansible</Highlight> &{" "}
+        <Highlight>Spinnaker</Highlight>
       </div>,
       <div>
         Deployed AI-powered multi-agent platform using{" "}
-        <div style={highlightStyle}>Azure OpenAI</div> &{" "}
-        <div style={highlightStyle}>LangChain</div> to accelerate
-        troubleshooting across teams
+        <Highlight>Azure OpenAI</Highlight> & <Highlight>LangChain</Highlight>{" "}
+        to accelerate troubleshooting across teams
       </div>,
       <div>
         Acted as both Engineer & Scrum Master in hybrid cloud migration,
@@ -44,38 +42,34 @@ const jobsData = [
     link: "https://www.autodesk.com/",
     duties: [
       <div>
-        Built a <div style={highlightStyle}>Generative AI Slack bot</div> in{" "}
-        <div style={highlightStyle}>Python</div> to automate ticket triage,
-        reducing support response time by significant margin
+        Built a <Highlight>Generative AI Slack bot</Highlight> in{" "}
+        <Highlight>Python</Highlight> to automate ticket triage, reducing
+        support response time by significant margin
       </div>,
       <div>
-        Integrated <div style={highlightStyle}>ServiceNow</div> and{" "}
-        <div style={highlightStyle}>JIRA</div> APIs with Slack for seamless
-        ticket management
+        Integrated <Highlight>ServiceNow</Highlight> and{" "}
+        <Highlight>JIRA</Highlight> APIs with Slack for seamless ticket
+        management
       </div>,
       <div>
-        Developed <div style={highlightStyle}>RAG pipelines</div> using{" "}
-        <div style={highlightStyle}>Azure OpenAI</div> &{" "}
-        <div style={highlightStyle}>LangChain</div> with embeddings, prompt
-        engineering, and multi-agent LLMs
+        Developed <Highlight>RAG pipelines</Highlight> using{" "}
+        <Highlight>Azure OpenAI</Highlight> & <Highlight>LangChain</Highlight>{" "}
+        with embeddings, prompt engineering, and multi-agent LLMs
       </div>,
       <div>
-        Built end-to-end <div style={highlightStyle}>CI/CD pipelines</div> with{" "}
-        <div style={highlightStyle}>Terraform</div> &{" "}
-        <div style={highlightStyle}>Jenkins</div> following{" "}
-        <div style={highlightStyle}>IaC</div> best practices
+        Built end-to-end <Highlight>CI/CD pipelines</Highlight> with{" "}
+        <Highlight>Terraform</Highlight> & <Highlight>Jenkins</Highlight>{" "}
+        following <Highlight>IaC</Highlight> best practices
       </div>,
       <div>
-        Implemented serverless architecture in{" "}
-        <div style={highlightStyle}>AWS</div> (Lambda, ECR, S3, DynamoDB,
-        SageMaker, VPC, API Gateway), ensuring scalable and resilient backend
-        services
+        Implemented serverless architecture in <Highlight>AWS</Highlight>{" "}
+        (Lambda, ECR, S3, DynamoDB, SageMaker, VPC, API Gateway), ensuring
+        scalable and resilient backend services
       </div>,
       <div>
         Trained multi-class classification model with{" "}
-        <div style={highlightStyle}>sklearn</div>, achieving{" "}
-        <div style={highlightStyle}>81% accuracy</div> for automated issue
-        diagnosis
+        <Highlight>sklearn</Highlight>, achieving{" "}
+        <Highlight>81% accuracy</Highlight> for automated issue diagnosis
       </div>,
     ],
   },
@@ -93,25 +87,21 @@ const jobsData = [
       </div>,
       <div>
         Developed cross-platform web & mobile applications using{" "}
-        <div style={highlightStyle}>React</div>,{" "}
-        <div style={highlightStyle}>React Native</div>,{" "}
-        <div style={highlightStyle}>Redux</div>,{" "}
-        <div style={highlightStyle}>TypeScript</div>,{" "}
-        <div style={highlightStyle}>Swift</div>, and{" "}
-        <div style={highlightStyle}>Java</div>
+        <Highlight>React</Highlight>, <Highlight>React Native</Highlight>,{" "}
+        <Highlight>Redux</Highlight>, <Highlight>TypeScript</Highlight>,{" "}
+        <Highlight>Swift</Highlight>, and <Highlight>Java</Highlight>
       </div>,
       <div>
-        Optimized <div style={highlightStyle}>Django</div> backend with{" "}
-        <div style={highlightStyle}>Celery</div> and{" "}
-        <div style={highlightStyle}>GraphQL</div>, improving query performance
-        and database efficiency
+        Optimized <Highlight>Django</Highlight> backend with{" "}
+        <Highlight>Celery</Highlight> and <Highlight>GraphQL</Highlight>,
+        improving query performance and database efficiency
       </div>,
       <div>
-        Implemented <div style={highlightStyle}>iOS & Android</div> video call
-        notifications using <div style={highlightStyle}>CallKit</div> and{" "}
-        <div style={highlightStyle}>ConnectionService</div>, integrated{" "}
-        <div style={highlightStyle}>Agora</div> to ensure{" "}
-        <div style={highlightStyle}>WebRTC</div> video quality
+        Implemented <Highlight>iOS & Android</Highlight> video call
+        notifications using <Highlight>CallKit</Highlight> and{" "}
+        <Highlight>ConnectionService</Highlight>, integrated{" "}
+        <Highlight>Agora</Highlight> to ensure <Highlight>WebRTC</Highlight>{" "}
+        video quality
       </div>,
       <div>
         Delivered enhanced UI/UX features including animations, graph
@@ -134,12 +124,12 @@ const jobsData = [
       <div>
         Achieved reduction of distortion correction errors from 1.395 ± 0.136
         pixels to 0.055 ± 0.192 pixels through cylindrical projection and
-        single-point mapping with <div style={highlightStyle}>{` Python `}</div>
+        single-point mapping with <Highlight>{` Python `}</Highlight>
       </div>,
       <div>
         Optimized DSP efficiency with mapping tables and video processing
-        algorithms using <div style={highlightStyle}>C</div> and{" "}
-        <div style={highlightStyle}>OpenCV</div>
+        algorithms using <Highlight>C</Highlight> and{" "}
+        <Highlight>OpenCV</Highlight>
       </div>,
     ],
   },
@@ -155,12 +145,12 @@ const jobsData = [
         Built classification models of brain during working memory maintenance
         based on 128-channel EEG dataset for material-specific Sternberg task
         through feature selection and machine learning with{" "}
-        <div style={highlightStyle}>{` Python `}</div>
+        <Highlight>{` Python `}</Highlight>
       </div>,
       <div>
         Extracted features of EEG signals by empirical mode decomposition (EMD)
         and phase space reconstruction (PSR) with{" "}
-        <div style={highlightStyle}>{` MATLAB `}</div>
+        <Highlight>{` MATLAB `}</Highlight>
       </div>,
       <div>
         Executed Support Vector Machine (SVM), K-nearest neighbor (KNN), Random
@@ -169,8 +159,8 @@ const jobsData = [
       <div>
         Accomplished improvement of classification performance from 71.45% to
         91.82% under SVM and published the result in an
-        <div style={highlightStyle}>{` IEEE `}</div> paper as the{" "}
-        <div style={highlightStyle}>{` first author `}</div>
+        <Highlight>{` IEEE `}</Highlight> paper as the{" "}
+        <Highlight>{` first author `}</Highlight>
       </div>,
     ],
   },
@@ -185,13 +175,13 @@ const jobsData = [
       <div>
         Built a Barrier-Free Positioning and Navigation System for people with
         disabilities by performing image segmentation via
-        <div style={highlightStyle}>{` PyTorch `}</div>
-        for indoor map construction as well as detecting obstacles based on the
-        <div style={highlightStyle}>{` YoloV3 `}</div> algorithm{" "}
+        <Highlight>{` PyTorch `}</Highlight>
+        for indoor map construction as well as detecting obstacles based on the{" "}
+        <Highlight>{` YoloV3 `}</Highlight> algorithm{" "}
       </div>,
       <div>
         Guided a four-person research team and participated in the development
-        of <div style={highlightStyle}>{` AR `}</div> assisted module for indoor
+        of <Highlight>{` AR `}</Highlight> assisted module for indoor
         positioning and navigation system in China International Import Expo
         (CIIE) in 2019 and 2020{" "}
       </div>,

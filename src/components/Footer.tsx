@@ -1,6 +1,5 @@
-import { myMilkYellow, myNavy } from "../MyLibrary/MyColors";
-import { Text } from "../MyLibrary";
-
+import { myNavy } from "../styles/colors";
+import { Text } from "../components/atoms";
 function Footer() {
   return (
     <footer>
@@ -14,18 +13,7 @@ function Footer() {
             paddingBottom: 30,
           }}
         >
-          {"Inspired by "}
-          <a
-            href={"https://github.com/bchiang7/v4"}
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              textDecoration: "none",
-              color: myMilkYellow,
-            }}
-          >
-            Brittany Chiang
-          </a>
+          {"© 2025 Yijing Wu. All rights reserved."}
         </Text>
       </div>
     </footer>

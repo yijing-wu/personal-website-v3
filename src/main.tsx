@@ -1,15 +1,19 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { ThemeProvider } from "@mui/material/styles";
 
 import reportWebVitals from "./reportWebVitals";
 
-import "./index.css";
-import "./MyLibrary/font.css";
+import "./styles/base.css";
+import "./styles/font.css";
 import App from "./App.tsx";
+import { theme } from "./styles/theme";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </StrictMode>
 );
 

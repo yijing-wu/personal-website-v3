@@ -14,7 +14,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Fade from "@mui/material/Fade";
 
 import * as GoogleAnalytics from "../config/GoogleAnalytics";
-import { myMintGreen, myNavy, myMilkYellow } from "../MyLibrary/MyColors";
+import { myMintGreen, myNavy, myMilkYellow } from "../styles/colors";
 import Logo from "../assets/Logo/Logo-pure.png";
 
 interface HideOnScrollProps {
