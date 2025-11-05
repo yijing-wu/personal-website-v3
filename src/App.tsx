@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -8,13 +7,12 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Social from "./components/Social";
 
-import { initGoogleAnalytics } from "./config/GoogleAnalytics";
+import { useAnalytics } from "./config/GoogleAnalytics";
 import { router } from "./routes";
 
 export default function App() {
-  useEffect(() => {
-    initGoogleAnalytics(import.meta.env.GOOGLE_ANALYTICS_TRACKING_ID);
-  });
+  // initialize analytics (disable if no tracking id, no log action in non-production modes)
+  useAnalytics(import.meta.env.VITE_GOOGLE_ANALYTICS_TRACKING_ID);
 
   return (
     <div className="App">

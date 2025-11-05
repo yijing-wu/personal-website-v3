@@ -81,10 +81,9 @@ function Experience() {
                         target="_blank"
                         rel="noreferrer"
                         onClick={() => {
-                          GoogleAnalytics.logEvent(
-                            "click-companyweb-" + jobData.abbreviation,
-                            "company-website",
-                            "minor-button"
+                          GoogleAnalytics.trackCompanyClick(
+                            "company_website_" + jobData.abbreviation,
+                            jobData.link
                           );
                         }}
                       >
@@ -181,11 +180,9 @@ function Experience() {
                         }}
                         onClick={() => {
                           setSelected(index);
-                          GoogleAnalytics.logEvent(
-                            "click-experience-" + jobData.abbreviation,
-                            "experience",
-                            "button"
-                          );
+                          GoogleAnalytics.trackEvent("chores:choose_job_data", {
+                            company: jobData.abbreviation,
+                          });
                         }}
                         onMouseEnter={() => {
                           setMouseFocused(index);
@@ -234,10 +231,9 @@ function Experience() {
                       target="_blank"
                       rel="noreferrer"
                       onClick={() => {
-                        GoogleAnalytics.logEvent(
-                          "click-companyweb-" + jobsData[selected].abbreviation,
-                          "company-website",
-                          "minor-button"
+                        GoogleAnalytics.trackCompanyClick(
+                          "company_website_" + jobsData[selected].abbreviation,
+                          jobsData[selected].link
                         );
                       }}
                     >

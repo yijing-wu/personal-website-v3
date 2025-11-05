@@ -115,10 +115,9 @@ const circleDjango = {
           target="_blank"
           rel="noreferrer"
           onClick={() => {
-            GoogleAnalytics.logEvent(
-              "click-circleDjango-RESTAPI",
-              "project-details",
-              "minor-button"
+            GoogleAnalytics.trackProjectLinkClick(
+              "circle_django",
+              "https://circle.up.railway.app/api/"
             );
           }}
         >
@@ -194,10 +193,9 @@ const heartDiseaseAnalysis = {
           rel="noreferrer"
           href="https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease"
           onClick={() => {
-            GoogleAnalytics.logEvent(
-              "click-heartDiseaseAnalysis-dataset",
-              "project-details",
-              "minor-button"
+            GoogleAnalytics.trackProjectLinkClick(
+              "heart_disease_analysis_dataset",
+              "https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease"
             );
           }}
         >

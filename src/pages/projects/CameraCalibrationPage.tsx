@@ -3,7 +3,7 @@ import { useLayoutEffect } from "react";
 import { MathJax, MathJaxContext } from "better-react-mathjax";
 
 import { BackButton, Text } from "../../components/atoms";
-import { myMilkYellow, myTextLightGrey } from "../../styles/colors";
+import { myMilkYellow, myTextLight } from "../../styles/colors";
 
 import {
   IMGCylindricalProjection,
@@ -28,7 +28,7 @@ export default function CameraCalibrationPage() {
   return (
     <div className="project-page">
       <BackButton />
-      <Text style={{ fontSize: 20, color: myTextLightGrey }}>
+      <Text style={{ fontSize: 20, color: myTextLight }}>
         <h1 style={{ color: myMilkYellow, marginTop: 30 }}>
           Camera Calibration and Distortion Correction
         </h1>

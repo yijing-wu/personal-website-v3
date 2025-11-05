@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 
-import { myMintGreen, myNavy } from "../../styles/colors";
+import { myMintGreen } from "../../styles/colors";
 import Text from "./Text";
+import Button from "./Button";
 
 export interface BackButtonProps {
   isHeading?: boolean;
@@ -15,33 +16,36 @@ export default function BackButton({
   style,
   children,
   ...rest
-}: BackButtonProps) {
-  const backButtonStyle = {
-    margin: 0,
-    padding: 0,
-    color: myMintGreen,
-    fontFamily: "Calibre-Regular",
-    backgroundColor: myNavy,
-    display: "flex",
-    border: "none",
-    cursor: "pointer",
-  };
-
+}: BackButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   const navigate = useNavigate();
 
   return (
-    <button
-      {...rest}
-      style={{ ...backButtonStyle, ...style }}
+    <Button
       onClick={() => navigate(-1)}
+      style={{
+        margin: 0,
+        padding: 0,
+        color: myMintGreen,
+        fontFamily: "Calibre-Regular",
+        backgroundColor: "transparent",
+        display: "flex",
+        border: "none",
+        cursor: "pointer",
+        ...(style ?? {}),
+      }}
+      {...(rest as React.ButtonHTMLAttributes<HTMLButtonElement>)}
     >
-      <ArrowBackIosNewOutlinedIcon style={{ fontSize: 15, marginRight: 3 }} />
+      <ArrowBackIosNewOutlinedIcon style={{ fontSize: 15, marginRight: 6 }} />
       <Text
         className="underline-animation"
-        style={{ fontSize: isHeading ? 18 : 16, color: myMintGreen }}
+        style={{
+          fontSize: isHeading ? 18 : 16,
+          color: myMintGreen,
+          paddingTop: 3,
+        }}
       >
         {children ?? "Back"}
       </Text>
-    </button>
+    </Button>
   );
 }

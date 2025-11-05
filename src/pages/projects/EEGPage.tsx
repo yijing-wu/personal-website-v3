@@ -1,7 +1,7 @@
 import { useLayoutEffect } from "react";
 
 import { BackButton, Text, Highlight } from "../../components/atoms";
-import { myMilkYellow, myTextLightGrey } from "../../styles/colors";
+import { myMilkYellow, myTextLight } from "../../styles/colors";
 
 import {
   ComparisonPrefrontalandVisualCortex,
@@ -27,7 +27,7 @@ export default function EEGPage() {
   return (
     <div className="project-page">
       <BackButton />
-      <Text style={{ fontSize: 20, color: myTextLightGrey }}>
+      <Text style={{ fontSize: 20, color: myTextLight }}>
         <h1 style={{ color: myMilkYellow, marginTop: 30 }}>
           Classification of EEG Signals during Working Memory Maintenance
         </h1>

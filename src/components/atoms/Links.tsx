@@ -52,10 +52,9 @@ export default function Links({
             setLinkMouseFocused("none");
           }}
           onClick={() => {
-            GoogleAnalytics.logEvent(
-              "click-githubLink-of-" + contentAbbreviation,
-              "project",
-              "button"
+            GoogleAnalytics.trackProjectLinkClick(
+              "project_githublink_" + contentAbbreviation,
+              githubLink
             );
           }}
         >
@@ -83,10 +82,9 @@ export default function Links({
               setLinkMouseFocused("none");
             }}
             onClick={() => {
-              GoogleAnalytics.logEvent(
-                "click-mainLink-of-" + contentAbbreviation,
-                "project",
-                "button"
+              GoogleAnalytics.trackProjectLinkClick(
+                "project_mainlink_" + contentAbbreviation,
+                mainLink
               );
             }}
           >
@@ -110,11 +108,7 @@ export default function Links({
               setLinkMouseFocused("none");
             }}
             onClick={() => {
-              GoogleAnalytics.logEvent(
-                "click-mainLink-of-" + contentAbbreviation,
-                "project",
-                "button"
-              );
+              GoogleAnalytics.trackPageView(mainLink);
             }}
           >
             <OpenInNewIcon style={{ fontSize: iconSize }} />

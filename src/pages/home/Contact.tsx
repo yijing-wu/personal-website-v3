@@ -61,7 +61,7 @@ function Contact() {
       <Button
         link={"mailto:yijingwu.w@gmail.com"}
         onClick={() => {
-          GoogleAnalytics.logEvent("click-sayhi", "social", "button");
+          GoogleAnalytics.trackSocialClick("email");
         }}
       >
         {"Say Hi"}

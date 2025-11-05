@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { trackPageView } from "../config/GoogleAnalytics";
 import { useMatches } from "react-router-dom";
 
 export default function RouteMeta() {
@@ -7,12 +8,17 @@ export default function RouteMeta() {
   useEffect(() => {
     // find the deepest match with a handle.meta
     for (let i = matches.length - 1; i >= 0; i--) {
-      const h = matches[i].handle as any;
-      if (h && h.meta) {
-        const { title, description } = h.meta as {
+      const handle = matches[i].handle as unknown;
+      if (
+        handle &&
+        typeof handle === "object" &&
+        "meta" in (handle as Record<string, unknown>)
+      ) {
+        const meta = (handle as Record<string, unknown>).meta as {
           title?: string;
           description?: string;
         };
+        const { title, description } = meta;
         if (title) document.title = title;
         if (description) {
           let desc = document.querySelector('meta[name="description"]');
@@ -22,6 +28,13 @@ export default function RouteMeta() {
             document.head.appendChild(desc);
           }
           desc.setAttribute("content", description);
+        }
+        // record a pageview for SPA navigation
+        try {
+          // use the exported helper from our analytics module
+          trackPageView(matches[i].pathname || undefined);
+        } catch (e) {
+          console.warn("[RouteMeta] trackPageView error", e);
         }
         return;
       }

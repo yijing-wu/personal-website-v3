@@ -7,7 +7,7 @@ import { useTheme } from "@mui/material/styles";
 import * as GoogleAnalytics from "../../../config/GoogleAnalytics";
 import { Button, Links, Text } from "../../../components/atoms";
 import {
-  myLightNavy,
+  myNavyLight,
   myMilkYellow,
   myMintGreen,
   myTextGrey,
@@ -95,7 +95,7 @@ function FeaturedProjectDetails({
       <div style={{ position: "relative", top: 10, zIndex: 2 }}>
         <div
           style={{
-            backgroundColor: myLightNavy,
+            backgroundColor: myNavyLight,
             width: isMobile ? "100%" : "120%",
             left: isMobile ? "0%" : textRightAlign ? "-20%" : "0%",
             position: "relative",
@@ -173,11 +173,9 @@ function FeaturedProjectDetails({
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => {
-                    GoogleAnalytics.logEvent(
-                      "click-mainLink-of-" + abbreviation,
-                      "project",
-                      "button"
-                    );
+                    GoogleAnalytics.trackEvent("chores:click_learn_more", {
+                      project: abbreviation,
+                    });
                   }}
                 >
                   {"Learn More"}
@@ -187,11 +185,7 @@ function FeaturedProjectDetails({
                   to={mainLink ? mainLink : ""}
                   style={{ textDecoration: "none", color: myMintGreen }}
                   onClick={() => {
-                    GoogleAnalytics.logEvent(
-                      "click-mainLink-of-" + abbreviation,
-                      "project",
-                      "button"
-                    );
+                    GoogleAnalytics.trackPageView(mainLink);
                   }}
                 >
                   {"Learn More"}

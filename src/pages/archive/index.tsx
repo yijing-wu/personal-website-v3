@@ -11,7 +11,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 import {
-  myLightNavy,
+  myNavyLight,
   myMilkYellow,
   myMintGreen,
   myNavy,
@@ -103,7 +103,7 @@ export default function ArchivePage() {
                   "&:last-child td, &:last-child th": { border: 0 },
                   "&.MuiTableRow-hover": {
                     "&:hover": {
-                      backgroundColor: myLightNavy,
+                      backgroundColor: myNavyLight,
                     },
                   },
                 }}

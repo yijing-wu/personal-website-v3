@@ -16,7 +16,9 @@ export default function OtherProjects() {
   const _handleShowMore = () => {
     setOnShowMore(!onShowMore);
     if (!onShowMore) {
-      GoogleAnalytics.logEvent("click-show-more-projects", "project", "button");
+      GoogleAnalytics.trackEvent("chores:click_show_more_projects", {
+        action: "show_more",
+      });
     }
   };
 
@@ -42,11 +44,7 @@ export default function OtherProjects() {
             fontFamily: "SFMono-Regular",
           }}
           onClick={() => {
-            GoogleAnalytics.logEvent(
-              "click-view-archieve-projects",
-              "project",
-              "button"
-            );
+            GoogleAnalytics.trackPageView(ROUTES.ARCHIVE);
           }}
         >
           {"view the archive"}

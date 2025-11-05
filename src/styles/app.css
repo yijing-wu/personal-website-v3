@@ -11,15 +11,7 @@
   }
 }
 
-/* NavBar */
-.navbar-item {
-  color: #9a9a9a; /* myTextGrey */
-}
-
-.navbar-item:hover,
-.navbar-item:focus {
-  color: #c2ded1; /* myMintGreen */
-}
+/* NavBar (moved to src/styles/navbar.css) */
 
 /* About */
 
@@ -132,7 +124,7 @@
   display: block;
   width: 100%;
   height: 1px;
-  bottom: 0;
+  bottom: 6px;
   left: 0;
   background-color: #c2ded1; /* myMintGreen */
   transform: scaleX(0);

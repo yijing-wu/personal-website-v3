@@ -1,6 +1,8 @@
 export const ROUTES = {
   HOME: "/",
   ARCHIVE: "/archive",
+  BLOG: "/blog",
+  BLOG_POST: "/blog/:slug",
   SMITH_CHART: "/smith-chart",
   CAMERA_CALIBRATION: "/camera-calibration",
   EEG: "/eeg",
@@ -36,5 +38,9 @@ export const ROUTE_META: Record<
   [ROUTES.INTELLIGENT_CARS]: {
     title: "Intelligent Cars | Projects",
     description: "Project: Intelligent Cars — simulations and collections.",
+  },
+  [ROUTES.BLOG]: {
+    title: "Blog | Yijing Wu",
+    description: "All blog posts.",
   },
 };

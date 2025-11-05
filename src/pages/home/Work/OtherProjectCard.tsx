@@ -5,7 +5,7 @@ import FolderOutlinedIcon from "@mui/icons-material/FolderOutlined";
 
 import { Links, Text } from "../../../components/atoms";
 import {
-  myLightNavy,
+  myNavyLight,
   myMilkYellow,
   myMintGreen,
   myTextGrey,
@@ -33,7 +33,7 @@ export default function OtherProjectCard({ project }: OtherProjectCardProps) {
       <div
         className="card"
         style={{
-          backgroundColor: myLightNavy,
+          backgroundColor: myNavyLight,
           borderRadius: 6,
           height: "90%",
           padding: 20,

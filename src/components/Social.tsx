@@ -33,7 +33,7 @@ function Social() {
           target="_blank"
           rel="noreferrer"
           onClick={() => {
-            GoogleAnalytics.logEvent("click-github", "social", "button");
+            GoogleAnalytics.trackSocialClick("github");
           }}
         >
           <GitHubIcon />
@@ -45,7 +45,7 @@ function Social() {
           target="_blank"
           rel="noreferrer"
           onClick={() => {
-            GoogleAnalytics.logEvent("click-linkedin", "social", "button");
+            GoogleAnalytics.trackSocialClick("linkedin");
           }}
         >
           <LinkedInIcon />
@@ -55,7 +55,7 @@ function Social() {
         <a
           href="mailto:yijingwu.w@gmail.com"
           onClick={() => {
-            GoogleAnalytics.logEvent("click-email", "social", "button");
+            GoogleAnalytics.trackSocialClick("email");
           }}
         >
           <MailOutlineIcon />

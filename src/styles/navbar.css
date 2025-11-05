@@ -1,0 +1,103 @@
+/* Navbar specific styles moved from app.css */
+
+.navbar-item {
+  color: #9a9a9a; /* myTextGrey */
+}
+
+.navbar-item:hover,
+.navbar-item:focus {
+  color: #c2ded1; /* myMintGreen */
+}
+
+/* Animated hamburger menu (hamburger -> X) */
+.menu-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.menu {
+  width: 2rem;
+  height: 0.2rem;
+  background: #c2ded1; /* myMintGreen fallback */
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu:before,
+.menu:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 0.2rem;
+  background: #c2ded1; /* myMintGreen */
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), top 0.45s,
+    bottom 0.45s, opacity 0.45s;
+}
+
+.menu:before {
+  bottom: 0.4rem;
+}
+
+.menu:after {
+  top: 0.4rem;
+}
+
+.menu.active {
+  background-color: rgba(0, 0, 0, 0); /* hide middle bar */
+}
+
+.menu.active:before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+.menu.active:after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* ensure the mobile IconButton area doesn't show default MUI styling */
+.mui-menu-reset {
+  background: transparent !important;
+}
+
+/* Blog button */
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px; /* ensure button isn't too short */
+  height: 30px; /* explicit height to align with other nav items */
+  box-sizing: border-box;
+  border-radius: 999px; /* pill */
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 120ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-button--desktop {
+  margin-left: 12px; /* keep spacing but visually aligned with links */
+  font-size: 12px;
+  padding-bottom: 2px;
+  vertical-align: middle;
+}
+
+.nav-button--mobile {
+  width: min(300px, 80%);
+  padding: 14px 22px;
+  padding-bottom: 16px;
+  font-size: 18px;
+}

@@ -15,6 +15,8 @@ const IntelligentCars = lazy(
   () => import("../pages/projects/IntelligentCarsPage")
 );
 const SmithChart = lazy(() => import("../pages/projects/SmithChartPage"));
+const BlogIndex = lazy(() => import("../pages/blogs/BlogIndexPage"));
+const BlogPostPage = lazy(() => import("../pages/blogs/BlogPostPage"));
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +50,16 @@ export const router = createBrowserRouter([
     path: ROUTES.INTELLIGENT_CARS,
     element: <IntelligentCars />,
     handle: { meta: ROUTE_META[ROUTES.INTELLIGENT_CARS] },
+  },
+  {
+    path: ROUTES.BLOG,
+    element: <BlogIndex />,
+    handle: { meta: ROUTE_META[ROUTES.BLOG] },
+  },
+  {
+    path: ROUTES.BLOG_POST,
+    element: <BlogPostPage />,
+    handle: { meta: ROUTE_META[ROUTES.BLOG] },
   },
   // invisible route that attaches RouteMeta so it runs on each navigation
   {

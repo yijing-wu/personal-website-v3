@@ -1,5 +1,5 @@
 import React from "react";
-import { myTextLightGrey } from "../../styles/colors";
+import { myTextLight } from "../../styles/colors";
 
 export interface HighlightProps<T extends React.ElementType = "span"> {
   as?: T;
@@ -18,7 +18,7 @@ export default function Highlight<T extends React.ElementType = "span">({
   const baseStyle: React.CSSProperties = {
     display: "inline",
     fontFamily: "Calibre-Medium",
-    color: myTextLightGrey,
+    color: myTextLight,
   };
 
   return (

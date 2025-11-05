@@ -2,7 +2,7 @@ import { useLayoutEffect } from "react";
 
 import { BackButton, Text } from "../../components/atoms";
 
-import { myMilkYellow, myTextLightGrey } from "../../styles/colors";
+import { myMilkYellow, myTextLight } from "../../styles/colors";
 
 import {
   intelligentCar,
@@ -19,11 +19,11 @@ export default function IntelligentCarsPage() {
   return (
     <div className="project-page">
       <BackButton />
-      <Text style={{ fontSize: 20, color: myTextLightGrey }}>
+      <Text style={{ fontSize: 20, color: myTextLight }}>
         <h1 style={{ color: myMilkYellow, marginTop: 30 }}>
           Electromagnetic Guiding Intelligent Cars
         </h1>
-        <Text style={{ fontSize: 20, color: myTextLightGrey, marginTop: 10 }}>
+        <Text style={{ fontSize: 20, color: myTextLight, marginTop: 10 }}>
           <div>{intelligentCars.description}</div>
         </Text>
         <div style={{ height: 20 }}></div>

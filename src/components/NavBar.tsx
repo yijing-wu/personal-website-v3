@@ -9,13 +9,13 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Box from "@mui/material/Box";
 import Slide from "@mui/material/Slide";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
 import Fade from "@mui/material/Fade";
 
+import { ROUTES } from "../routes/routes";
 import * as GoogleAnalytics from "../config/GoogleAnalytics";
 import { myMintGreen, myNavy, myMilkYellow } from "../styles/colors";
 import Logo from "../assets/Logo/Logo-pure.png";
+import "../styles/navbar.css";
 
 interface HideOnScrollProps {
   /**
@@ -77,11 +77,14 @@ export default function NavBar() {
         elevation={0}
         position="fixed"
       >
-        <Toolbar sx={{ minHeight: { xs: 64, sm: 72 }, px: { xs: 2, sm: 3 } }}>
-          <Typography
-            variant="h6"
-            sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}
-          >
+        <Toolbar
+          sx={{
+            minHeight: { xs: 64, sm: 72 },
+            px: { xs: 2, sm: 3 },
+            alignItems: "center",
+          }}
+        >
+          <Typography variant="h6" sx={{ flexGrow: 1, display: "flex" }}>
             <a
               href="/"
               style={{ display: "flex", alignItems: "center" }}
@@ -95,7 +98,12 @@ export default function NavBar() {
             </a>
           </Typography>
           {/* md+ keep original multi-item navigation */}
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+            }}
+          >
             {navItems.map((item, index) => (
               <a
                 href={item.url}
@@ -112,11 +120,7 @@ export default function NavBar() {
                 }}
                 className="navbar-item"
                 onClick={() => {
-                  GoogleAnalytics.logEvent(
-                    "click-navbar-" + item.name,
-                    "navbar",
-                    "button"
-                  );
+                  GoogleAnalytics.trackMenuClick(item.name, item.url);
                 }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = myMintGreen)
@@ -133,21 +137,50 @@ export default function NavBar() {
                 {`${item.name}`}
               </a>
             ))}
+
+            <a
+              href={ROUTES.BLOG}
+              className="nav-button nav-button--desktop"
+              onClick={() =>
+                GoogleAnalytics.trackMenuClick("blog", ROUTES.BLOG)
+              }
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = myMintGreen;
+                e.currentTarget.style.color = myNavy;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = myMintGreen;
+              }}
+              onFocus={(e) => (e.currentTarget.style.background = myMintGreen)}
+              onBlur={(e) => (e.currentTarget.style.background = "transparent")}
+              style={{ color: myMintGreen, border: `1px solid ${myMintGreen}` }}
+            >
+              Blog
+            </a>
           </Box>
           {/* md and sm  */}
           {isMdDown && (
             <IconButton
               aria-label={menuOpen ? "close navigation" : "open navigation"}
               onClick={() => setMenuOpen((v) => !v)}
+              className="mui-menu-reset"
               sx={{
                 color: myMintGreen,
                 display: "flex",
                 position: "relative",
                 zIndex: 1301, // make sure it's above the overlay menu
+                p: 0,
               }}
               size="large"
             >
-              {menuOpen ? <CloseIcon /> : <MenuIcon />}
+              <span
+                className="menu-button"
+                aria-hidden="true"
+                role="presentation"
+              >
+                <div className={menuOpen ? "menu active" : "menu"} />
+              </span>
             </IconButton>
           )}
         </Toolbar>
@@ -185,11 +218,7 @@ export default function NavBar() {
                   href={item.url}
                   onClick={() => {
                     setMenuOpen(false);
-                    GoogleAnalytics.logEvent(
-                      "click-navbar-" + item.name,
-                      "navbar-mobile",
-                      "button"
-                    );
+                    GoogleAnalytics.trackMenuClick(item.name, item.url);
                   }}
                   style={{
                     fontFamily: "Calibre-Semibold",
@@ -231,6 +260,43 @@ export default function NavBar() {
                   {item.name}
                 </a>
               ))}
+              <a
+                href={ROUTES.BLOG}
+                onClick={() => {
+                  setMenuOpen(false);
+                  GoogleAnalytics.trackMenuClick("blog", ROUTES.BLOG);
+                }}
+                className="nav-button nav-button--mobile"
+                style={{
+                  color: myMintGreen,
+                  background: "transparent",
+                  border: `1px solid ${myMintGreen}`,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = myMintGreen;
+                  e.currentTarget.style.color = myNavy;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.color = myMintGreen;
+                }}
+                onTouchStart={(e) => {
+                  e.currentTarget.style.background = myMintGreen;
+                  e.currentTarget.style.color = myNavy;
+                }}
+                onTouchEnd={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.color = myMintGreen;
+                }}
+                onFocus={(e) =>
+                  (e.currentTarget.style.background = myMintGreen)
+                }
+                onBlur={(e) =>
+                  (e.currentTarget.style.background = "transparent")
+                }
+              >
+                Blog
+              </a>
             </Box>
           </Box>
         </Fade>
