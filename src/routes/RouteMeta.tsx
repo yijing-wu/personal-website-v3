@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import { trackPageView } from "../config/GoogleAnalytics";
 import { useMatches } from "react-router-dom";
+
+import { trackPageView } from "../config/GoogleAnalytics";
 
 export default function RouteMeta() {
   const matches = useMatches();

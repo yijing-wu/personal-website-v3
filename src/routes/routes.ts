@@ -43,4 +43,8 @@ export const ROUTE_META: Record<
     title: "Blog | Yijing Wu",
     description: "All blog posts.",
   },
+  [ROUTES.BLOG_POST]: {
+    title: "Blog Post | Yijing Wu",
+    description: "A single blog post.",
+  },
 };

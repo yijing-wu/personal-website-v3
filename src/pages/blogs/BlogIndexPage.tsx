@@ -45,6 +45,7 @@ export default function BlogIndexPage() {
       visible?: boolean;
     };
   };
+
   const modules = import.meta.glob<MDXModule>("../../content/blogs/*.mdx", {
     eager: true,
   });

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -138,8 +138,8 @@ export default function NavBar() {
               </a>
             ))}
 
-            <a
-              href={ROUTES.BLOG}
+            <Link
+              to={ROUTES.BLOG}
               className="nav-button nav-button--desktop"
               onClick={() =>
                 GoogleAnalytics.trackMenuClick("blog", ROUTES.BLOG)
@@ -157,7 +157,7 @@ export default function NavBar() {
               style={{ color: myMintGreen, border: `1px solid ${myMintGreen}` }}
             >
               Blog
-            </a>
+            </Link>
           </Box>
           {/* md and sm  */}
           {isMdDown && (
@@ -260,8 +260,8 @@ export default function NavBar() {
                   {item.name}
                 </a>
               ))}
-              <a
-                href={ROUTES.BLOG}
+              <Link
+                to={ROUTES.BLOG}
                 onClick={() => {
                   setMenuOpen(false);
                   GoogleAnalytics.trackMenuClick("blog", ROUTES.BLOG);
@@ -296,7 +296,7 @@ export default function NavBar() {
                 }
               >
                 Blog
-              </a>
+              </Link>
             </Box>
           </Box>
         </Fade>
