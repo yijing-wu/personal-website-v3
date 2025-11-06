@@ -2,12 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
+import {
+  myMintGreen,
+  myMintGreenC0Alpha,
+  myMilkYellow,
+  myTextGrey,
+} from "../../styles/colors";
 import MDXComponents from "../../components/mdx/MDXComponents";
 import { BackButton } from "../../components/atoms";
 
 type MDXModule = {
   default: React.ComponentType<Record<string, unknown>>;
-  meta?: { title?: string };
+  meta?: { title?: string; tags?: string[]; date?: string };
 };
 
 export default function BlogPostPage() {
@@ -69,10 +77,55 @@ export default function BlogPostPage() {
       <Box sx={{ mb: 2 }}>
         <BackButton />
       </Box>
-      <Typography variant="h4" gutterBottom>
+
+      {/* List title and date */}
+      <Typography
+        component="h1"
+        variant="h4"
+        gutterBottom
+        sx={{ color: myMilkYellow, fontWeight: "bold" }}
+      >
         {Title}
       </Typography>
-      <Comp components={MDXComponents} />
+
+      {MDXComp.meta?.date && (
+        <Typography
+          component="span"
+          variant="caption"
+          sx={{ color: myTextGrey }}
+        >
+          {MDXComp.meta.date}
+        </Typography>
+      )}
+
+      {/* Divider */}
+      <Box sx={{ my: 2, borderBottom: `2px solid ${myTextGrey}` }} />
+
+      {/* Render MDX content */}
+      <div className="mdx-content">
+        <Comp components={MDXComponents} />
+      </div>
+
+      {/* list tags at the end */}
+      <Box sx={{ mt: 2 }}>
+        <Stack direction="row" flexWrap="wrap" gap={1} sx={{ mt: 1 }}>
+          {(MDXComp.meta?.tags || []).map((t: string) => (
+            <Chip
+              key={t}
+              label={t}
+              size="small"
+              sx={{
+                borderRadius: "6px",
+                fontSize: "0.75rem",
+                color: myMintGreen,
+                backgroundColor: "transparent",
+                fontWeight: 500,
+                border: `1px solid ${myMintGreenC0Alpha}`,
+              }}
+            />
+          ))}
+        </Stack>
+      </Box>
     </Box>
   );
 }

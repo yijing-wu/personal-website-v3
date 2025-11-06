@@ -6,6 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 
 import "./styles/base.css";
 import "./styles/font.css";
+// Syntax highlighting theme for MDX code blocks
+import "highlight.js/styles/github-dark.css";
 import App from "./App.tsx";
 import { theme } from "./styles/theme";
 

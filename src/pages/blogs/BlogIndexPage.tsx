@@ -31,13 +31,20 @@ type PostItem = {
   date?: string;
   summary?: string;
   tags?: string[];
+  visible?: boolean;
 };
 
 export default function BlogIndexPage() {
   // Use eager import to read metadata at build time / startup
   type MDXModule = {
     default?: unknown;
-    meta?: { title?: string; date?: string; summary?: string; tags?: string[] };
+    meta?: {
+      title?: string;
+      date?: string;
+      summary?: string;
+      tags?: string[];
+      visible?: boolean;
+    };
   };
   const modules = import.meta.glob<MDXModule>("../../content/blogs/*.mdx", {
     eager: true,
@@ -54,11 +61,14 @@ export default function BlogIndexPage() {
       date: meta.date,
       summary: meta.summary,
       tags: meta.tags || [],
+      visible: meta.visible !== false,
     };
   });
 
+  const visiblePosts = posts.filter((p) => p.visible !== false);
+
   // sort by date desc if present
-  posts.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  visiblePosts.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<string>("date-desc");
@@ -66,13 +76,13 @@ export default function BlogIndexPage() {
 
   const allTags = useMemo(() => {
     const s = new Set<string>();
-    posts.forEach((p) => (p.tags || []).forEach((t) => s.add(t)));
+    visiblePosts.forEach((p) => (p.tags || []).forEach((t) => s.add(t)));
     return Array.from(s).sort();
-  }, [posts]);
+  }, [visiblePosts]);
 
   const filtered = selectedTag
-    ? posts.filter((p) => (p.tags || []).includes(selectedTag))
-    : posts;
+    ? visiblePosts.filter((p) => (p.tags || []).includes(selectedTag))
+    : visiblePosts;
 
   const visible = [...filtered].sort((a, b) => {
     if (sortBy === "date-desc")
