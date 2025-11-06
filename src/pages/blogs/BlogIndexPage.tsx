@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";

@@ -8,7 +8,10 @@ import rehypeHighlight from "rehype-highlight";
 export default defineConfig({
   plugins: [
     react(),
-    mdx({ remarkPlugins: [remarkGfm], rehypePlugins: [rehypeHighlight] }),
+    mdx({
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypeHighlight as any],
+    }),
   ],
   base: "/",
 });
