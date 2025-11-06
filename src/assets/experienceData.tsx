@@ -11,7 +11,7 @@ const jobsData = [
     duties: [
       <div>
         Leading cloud infrastructure initiatives, building scalable services for
-        Autodesk products, supporting 30+ teams and 1200+ machines
+        Autodesk products, supporting 30+ teams and 1200+ machines.
       </div>,
       <div>
         Designed and deployed an on-demand AWS platform (EC2, Lambda, S3,
