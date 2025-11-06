@@ -1,4 +1,4 @@
-// Home Page
+// Intro Page
 const myName = "Yijing Wu";
 
 // const myTitle = "A software developer.";

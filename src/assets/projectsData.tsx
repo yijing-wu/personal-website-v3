@@ -1,7 +1,8 @@
 import * as GoogleAnalytics from "../config/GoogleAnalytics";
+import { ROUTES } from "../routes/routes";
 
 // image import
-import { highlightStyle } from "../MyLibrary/MyStyles";
+import Highlight from "../components/atoms/Highlight";
 import CameraCalibrationProfile from "./projects/camera-calibration.png";
 import CircleDjangoProfile from "./projects/circle.png";
 import CourseSelectionProfile from "./projects/courseSelection.png";
@@ -23,20 +24,18 @@ const aquaGolffCollectionRobot = {
   description: (
     <>
       <div>
-        - A robot programmed with <div style={highlightStyle}>Raspberry Pi</div>
-        , which is able to locate, recognize and collect aqua golf in water
-        automatically.
+        - A robot programmed with <Highlight>Raspberry Pi</Highlight>, which is
+        able to locate, recognize and collect aqua golf in water automatically.
       </div>
       <div style={{ height: 4 }} />
       <div>
         - The robot arm is designed and manufactured via Fusion360,{" "}
-        <div style={highlightStyle}>3D modeling</div> and{" "}
-        <div style={highlightStyle}>3D printer</div>
+        <Highlight>3D modeling</Highlight> and <Highlight>3D printer</Highlight>
       </div>
       <div style={{ height: 4 }} />
       <div>
         - Performed image processing, conducted golf positioning and recognition
-        through image HSB using <div style={highlightStyle}>OpenCV</div>
+        through image HSB using <Highlight>OpenCV</Highlight>
       </div>
     </>
   ),
@@ -54,13 +53,11 @@ const borderlandsVRGame = {
   location: "Shanghai Jiao Tong University",
   description: (
     <div>
-      A <div style={highlightStyle}>VR</div> FPS (First Person Shooter) game on
-      HTC Vive headset via <div style={highlightStyle}>Unity 3D</div>
-      {", "}
-      <div style={highlightStyle}>Maya</div> .
+      A <Highlight>VR</Highlight> FPS (First Person Shooter) game on HTC Vive
+      headset via <Highlight>Unity 3D</Highlight>, <Highlight>Maya</Highlight>.
     </div>
   ),
-  tools: ["Unity,", "C#,", "Maya,", "VR"],
+  tools: ["Unity,", "C#,,", "Maya,", "VR"],
   mainLink: "",
   isMainLinkExternal: false,
   githubLink: "",
@@ -81,14 +78,13 @@ const cameraCalibration = {
       <div style={{ height: 4 }} />
       <div>
         - Developed mapping table and video processing algorithms for digital
-        signal processors based on{" "}
-        <div style={highlightStyle}>{` OpenCV `}</div> with{" "}
-        <div style={highlightStyle}>{` C `}</div>
+        signal processors based on <Highlight>{` OpenCV `}</Highlight> with{" "}
+        <Highlight>{` C `}</Highlight>
       </div>
     </>
   ),
   tools: ["Python,", "C,", "OpenCV,", "Anaconda"],
-  mainLink: "/cameracalibration",
+  mainLink: ROUTES.CAMERA_CALIBRATION,
   isMainLinkExternal: false,
   githubLink: "",
 };
@@ -107,8 +103,8 @@ const circleDjango = {
       </div>
       <div style={{ height: 4 }} />
       <div>
-        - Developed via <div style={highlightStyle}>Python Django</div> with
-        <div style={highlightStyle}> PostgreSQL</div> database
+        - Developed via <Highlight>Python Django</Highlight> with{" "}
+        <Highlight>PostgreSQL</Highlight> database
       </div>
       <div style={{ height: 4 }} />
       <div>
@@ -119,10 +115,9 @@ const circleDjango = {
           target="_blank"
           rel="noreferrer"
           onClick={() => {
-            GoogleAnalytics.logEvent(
-              "click-circleDjango-RESTAPI",
-              "project-details",
-              "minor-button"
+            GoogleAnalytics.trackProjectLinkClick(
+              "circle_django",
+              "https://circle.up.railway.app/api/"
             );
           }}
         >
@@ -131,7 +126,7 @@ const circleDjango = {
         through Django REST framework
       </div>
       <div>
-        - Mobile <div style={highlightStyle}> responsiveness</div> design
+        - Mobile <Highlight>responsiveness</Highlight> design
       </div>
       <div>- Deployed on Railway</div>
     </>
@@ -151,10 +146,9 @@ const courseSelectionSystem = {
   description: (
     <div>
       A course selection management system with separation of frontend and
-      backend based on <div style={highlightStyle}>Vue.js</div>,{" "}
-      <div style={highlightStyle}>Node.js</div>,{" "}
-      <div style={highlightStyle}>Element-UI</div> and{" "}
-      <div style={highlightStyle}>MySQL</div>.
+      backend based on <Highlight>Vue.js</Highlight>,{" "}
+      <Highlight>Node.js</Highlight>, <Highlight>Element-UI</Highlight> and{" "}
+      <Highlight>MySQL</Highlight>.
     </div>
   ),
   tools: ["Vue.js,", "Node.js,", "MySQL,", "ECharts,", "Javascript"],
@@ -177,7 +171,7 @@ const intelligentCars = {
     </div>
   ),
   tools: ["C,", "Keil uVision"],
-  mainLink: "/intelligentcars",
+  mainLink: ROUTES.INTELLIGENT_CARS,
   isMainLinkExternal: false,
   githubLink: "",
 };
@@ -199,10 +193,9 @@ const heartDiseaseAnalysis = {
           rel="noreferrer"
           href="https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease"
           onClick={() => {
-            GoogleAnalytics.logEvent(
-              "click-heartDiseaseAnalysis-dataset",
-              "project-details",
-              "minor-button"
+            GoogleAnalytics.trackProjectLinkClick(
+              "heart_disease_analysis_dataset",
+              "https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease"
             );
           }}
         >
@@ -248,8 +241,8 @@ const huskyLovesShare = {
       <div style={{ height: 4 }} />
       <div>
         - Acted as the leading engineer, developed on{" "}
-        <div style={highlightStyle}>{`Expo`}</div>, and delivered the prototype
-        within a one and half day's hacking time
+        <Highlight>{`Expo`}</Highlight>, and delivered the prototype within a
+        one and half day's hacking time
       </div>
     </>
   ),
@@ -268,7 +261,7 @@ const eeg = {
   description:
     "Constructed classification models of brain during working memory maintenance based on 128-channel EEG dataset for material-specific Sternberg task through feature selection and machine learning",
   tools: ["Python,", "Matlab,", "EEG,", "SVM,", "RF,", "Machine-learning"],
-  mainLink: "/eeg",
+  mainLink: ROUTES.EEG,
   isMainLinkExternal: false,
   githubLink: "",
 };
@@ -309,22 +302,21 @@ const personalWebsiteV2 = {
       <div style={{ height: 4 }} />
       <div>
         - Second version of my personal website, built with{" "}
-        <div style={highlightStyle}>React</div> and{" "}
-        <div style={highlightStyle}>Material-UI</div>.
+        <Highlight>React</Highlight> and <Highlight>Material-UI</Highlight>.
       </div>
       <div style={{ height: 4 }} />
       <div>
-        - Integrated with <div style={highlightStyle}>Google Analytics</div> for
-        traffic and user interaction tracking.
+        - Integrated with <Highlight>Google Analytics</Highlight> for traffic
+        and user interaction tracking.
       </div>
       <div style={{ height: 4 }} />
       <div>
-        - Hosted on <div style={highlightStyle}>GitHub Pages</div>.
+        - Hosted on <Highlight>GitHub Pages</Highlight>.
       </div>
     </div>
   ),
   tools: ["React,", "Typescript,", "Material-UI,", "GA,", "CSS"],
-  mainLink: "/",
+  mainLink: ROUTES.HOME,
   isMainLinkExternal: true, // inorder to redirect
   githubLink: "https://github.com/yijing-wu/personal-website-v2",
 };
@@ -339,24 +331,22 @@ const rubikCubeHelper = {
     <>
       <div>
         - A dynamic and cross-platform application with{" "}
-        <div style={highlightStyle}>React</div>,{" "}
-        <div style={highlightStyle}>JavaScript</div> on web, and created{" "}
-        <div style={highlightStyle}>iOS</div> client using{" "}
-        <div style={highlightStyle}>Swift</div> and{" "}
-        <div style={highlightStyle}>CocoaPods</div>, aiming to bring more
-        personalized Cube learning experience
+        <Highlight>React</Highlight>, <Highlight>JavaScript</Highlight> on web,
+        and created <Highlight>iOS</Highlight> client using{" "}
+        <Highlight>Swift</Highlight> and <Highlight>CocoaPods</Highlight>,
+        aiming to bring more personalized Cube learning experience
       </div>
       <div style={{ height: 4 }} />
       <div>
-        - Delivered <div style={highlightStyle}>Node.js</div> with{" "}
-        <div style={highlightStyle}>Express.js</div> backend, hosted on{" "}
-        <div style={highlightStyle}>AWS EC2</div>for robust performance
+        - Delivered <Highlight>Node.js</Highlight> with{" "}
+        <Highlight>Express.js</Highlight> backend, hosted on{" "}
+        <Highlight>AWS EC2</Highlight> for robust performance
       </div>
       <div style={{ height: 4 }} />
       <div>
-        - Designed and built <div style={highlightStyle}>RESTful API</div> to
-        enable CRUD and authentication, integrated with{" "}
-        <div style={highlightStyle}>MongoDB</div> for efficient data storage
+        - Designed and built <Highlight>RESTful API</Highlight> to enable CRUD
+        and authentication, integrated with <Highlight>MongoDB</Highlight> for
+        efficient data storage
       </div>
       <div style={{ height: 4 }} />
       <div>
@@ -388,26 +378,25 @@ const santoriniGame = {
     <>
       <div>
         - A strategy-based board game playable with 2 players, developed backend
-        in <div style={highlightStyle}>Java</div> and{" "}
-        <div style={highlightStyle}>Apache Maven</div>, user interface in{" "}
-        <div style={highlightStyle}>React</div> and{" "}
-        <div style={highlightStyle}>TypeScript</div>.
+        in <Highlight>Java</Highlight> and <Highlight>Apache Maven</Highlight>,
+        user interface in <Highlight>React</Highlight> and{" "}
+        <Highlight>TypeScript</Highlight>.
       </div>
       <div style={{ height: 4 }} />
       <div>
-        - Designed the game system with <div style={highlightStyle}>MVC</div>{" "}
-        design pattern for a more extensible and robust system
+        - Designed the game system with <Highlight>MVC</Highlight> design
+        pattern for a more extensible and robust system
       </div>
       <div style={{ height: 4 }} />
       <div>
-        - Applied <div style={highlightStyle}>RESTful API</div> for
-        server-client data exchange
+        - Applied <Highlight>RESTful API</Highlight> for server-client data
+        exchange
       </div>
       <div style={{ height: 4 }} />
       <div>
         - Implemented unit tests and integration tests with over 90% test
-        coverage using <div style={highlightStyle}>JUnit</div> and{" "}
-        <div style={highlightStyle}>ts-jest</div>
+        coverage using <Highlight>JUnit</Highlight> and{" "}
+        <Highlight>ts-jest</Highlight>
       </div>
     </>
   ),
@@ -425,13 +414,13 @@ const smithChart = {
   location: "Tongji University",
   description: (
     <div>
-      A <div style={highlightStyle}>Matlab</div> and{" "}
-      <div style={highlightStyle}>Simulink</div> based graphical calculator tool
-      for radio frequency (RF) engineering.
+      A <Highlight>Matlab</Highlight> and <Highlight>Simulink</Highlight> based
+      graphical calculator tool for radio frequency (RF) engineering.
     </div>
   ),
   tools: ["Matlab,", "Simulink"],
-  mainLink: "/smithchart",
+  mainLink: ROUTES.SMITH_CHART,
+
   isMainLinkExternal: false,
   githubLink: "",
 };

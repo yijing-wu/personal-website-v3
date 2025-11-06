@@ -1,32 +1,28 @@
-import { myMilkYellow, myNavy } from "../MyLibrary/MyColors";
-import { Text } from "../MyLibrary";
+import { myNavy } from "../styles/colors";
+import { Text } from "../components/atoms";
+
+function FooterMeta() {
+  const year = new Date().getFullYear();
+  return (
+    <Text
+      style={{
+        fontFamily: "SFMono-Regular",
+        fontSize: 12,
+        textAlign: "center",
+      }}
+    >
+      {`\u00a9 ${year} Yijing Wu. All rights reserved.`}
+    </Text>
+  );
+}
 
 function Footer() {
   return (
     <footer>
       <div style={{ backgroundColor: myNavy, textAlign: "center" }}>
-        <Text
-          style={{
-            fontFamily: "SFMono-Regular",
-            fontSize: 12,
-            textAlign: "center",
-            paddingTop: 30,
-            paddingBottom: 30,
-          }}
-        >
-          {"Inspired by "}
-          <a
-            href={"https://github.com/bchiang7/v4"}
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              textDecoration: "none",
-              color: myMilkYellow,
-            }}
-          >
-            Brittany Chiang
-          </a>
-        </Text>
+        <div style={{ paddingTop: 6, paddingBottom: 30 }}>
+          <FooterMeta />
+        </div>
       </div>
     </footer>
   );

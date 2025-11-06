@@ -1,0 +1,243 @@
+/* Layout helpers */
+.page-wrapper {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+@media (max-width: 900px) {
+  .page-wrapper {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* NavBar (moved to src/styles/navbar.css) */
+
+/* About */
+
+#about .education-list,
+#about .skills-list {
+  width: 100%;
+  margin: 0;
+  margin-top: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+#about .education-list li + li {
+  margin-top: 16px;
+}
+
+#about .skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px 16px;
+}
+
+#about .skills-list li {
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+
+#about .skills-list li::before {
+  content: "◇";
+  line-height: 10px;
+  color: #c2ded1d2; /* myMintGreen */
+  margin-right: 8px;
+}
+
+/* Experience */
+#experience .selectedBar {
+  transition: linear 0.3s;
+}
+
+#experience .duty:before {
+  content: "◇";
+  line-height: 15px;
+  color: #c2ded1d2; /* myMintGreen with Alpha*/
+  margin-right: 10px;
+}
+
+/* Work */
+#work .card {
+  transition: linear 0.1s;
+}
+
+/* Social */
+.social-list::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 90px;
+  margin: 0 auto;
+  background-color: #9a9a9a; /* myTextGrey */
+}
+
+.social-list li:hover,
+.social-list li:focus {
+  transform: translateY(-3px);
+}
+
+.social-list a {
+  color: #9a9a9a; /* myTextGrey */
+}
+
+.social-list a:hover,
+.social-list a:focus {
+  color: #c2ded1; /* myMintGreen */
+}
+
+/* Projects */
+.project-page {
+  padding-top: 120px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.project-page .figure {
+  text-align: center;
+}
+
+.project-page .figure .figure-footnote {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 12px;
+  margin-top: -5px;
+}
+
+/* Underline Slide in Animation */
+.underline-animation {
+  position: relative;
+  color: #c2ded1; /* myMintGreen */
+  text-decoration: none;
+}
+
+.underline-animation:hover {
+  color: #c2ded1; /* myMintGreen */
+}
+
+.underline-animation::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  bottom: 0px;
+  left: 0;
+  background-color: #c2ded1; /* myMintGreen */
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+}
+
+.underline-animation:hover::before {
+  transform: scaleX(1);
+}
+
+@media (max-width: 900px) {
+  .underline-animation::before {
+    height: 2px;
+  }
+}
+
+/* MDX content styles */
+.mdx-content {
+  color: #d1d5db; /* fallback text */
+  line-height: 1.75;
+  font-size: 1rem;
+}
+.mdx-content h1,
+.mdx-content h2,
+.mdx-content h3,
+.mdx-content h4 {
+  color: #fff7c2; /* myMilkYellow-like */
+  margin-top: 1.25rem;
+  margin-bottom: 0.6rem;
+}
+.mdx-content p {
+  color: #cfcfcf; /* myTextGrey variant */
+  margin-bottom: 1rem;
+}
+.mdx-content ul,
+.mdx-content ol {
+  margin-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+.mdx-content li {
+  margin-bottom: 0.5rem;
+}
+
+.mdx-content code {
+  background: #222;
+  color: #fff7c2;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.mdx-content pre {
+  background: #0f1720;
+  color: #fff7c2;
+  padding: 12px;
+  border-radius: 8px;
+  overflow: auto;
+  margin-bottom: 1rem;
+}
+
+.mdx-content blockquote {
+  margin: 0 0 1rem 0;
+}
+
+.mdx-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+.mdx-content th,
+.mdx-content td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.mdx-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.06),
+    transparent
+  );
+  margin: 1.5rem 0;
+}
+
+.mdx-content details {
+  margin: 0.6rem 0;
+}
+.mdx-content summary {
+  list-style: none;
+}
+
+.mdx-content kbd {
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.mdx-content img {
+  max-width: 100%;
+  display: block;
+  margin: 12px auto;
+}
+
+.mdx-content .task-list {
+  list-style: none;
+  padding-left: 0;
+}
+.mdx-content .task-list li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

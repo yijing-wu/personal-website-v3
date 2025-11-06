@@ -1,0 +1,257 @@
+
+export const meta = {
+	title: "Markdown and MDX Full Example",
+	date: "2025-11-04",
+	summary: "Example blog post demonstrating MDX features and styles.",
+	tags: ["mdx", "demo"],
+	visible: false
+};
+
+# Headers
+
+# h1 Heading
+## h2 Heading
+### h3 Heading
+#### h4 Heading
+##### h5 Heading
+###### h6 Heading
+
+Alternatively, for H1 and H2, an underline-ish style:
+
+Alt-H1
+======
+
+Alt-H2
+------
+
+------
+
+# Emphasis
+
+**This is bold text**
+
+__This is bold text__
+
+*This is italic text*
+
+_This is italic text_
+
+~~Strikethrough~~
+
+Or use the del tag: <del>deleted</del> text.
+
+------
+
+# Lists
+
+1. First ordered list item
+2. Another item
+    1. Sub-item
+    2. Sub-item
+3. Third item
+
+
+- Here is a list item 1
+- Here is a list item 2
+  - Nested list item level 2
+		- Nested list item level 3
+    - `*`, `+`, or `-` can be used as bullet points
+
+
+1. It can also be used in this way
+    1. ordered sub-list
+    - unordered sub-list
+    2. ordered sub-list
+        * another unordered sub-list
+        + and another one
+
+------
+
+# Task lists
+
+- [x] Completed Task
+- [ ] Incomplete Task
+
+
+------
+
+# Ignoring Markdown formatting
+
+You can tell GitHub to ignore (or escape) Markdown formatting by using \ before the Markdown character.
+
+```
+Here is an \*\*example\*\*.
+Here is an **example**.
+```
+
+Here is an \*\*example\*\*.
+
+Here is an **example**.
+
+------
+
+# Links
+
+- [An inline-style link](https://www.google.com)
+
+- [A reference-style link][Google]
+
+[Google]: https://www.google.com
+
+- [Use numbers for reference-style link definitions][1]
+
+[1]: https://www.google.com
+
+- [A relative reference to a repository file](../blob/master/LICENSE)
+
+- Autolink literals 
+  
+  www.example.com, https://example.com, and contact@example.com.
+
+------
+
+# Images
+
+Inline-style:
+![example image](/src/assets/ProfilePhoto.png "Profile")
+
+Reference-style:
+![example image][example_image]
+
+[example_image]: /src/assets/ProfilePhoto.png "Profile"
+
+Div with class for styling:
+<div className="mdx-image-container">
+  <img src="/src/assets/ProfilePhoto.png" alt="Profile" style={{ maxWidth: '20%', height: 'auto' }} />  
+</div>
+
+------
+
+# [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
+
+
+Footnote 1 link[^first].
+
+[^first]: Footnote **can have markup**
+
+    and multiple paragraphs.
+
+
+Footnote 2 link[^second].
+
+Duplicated footnote reference[^second].
+
+[^second]: Footnote text.
+
+
+------
+
+# Code and Syntax Highlighting
+
+Inline `code` has `back-ticks around` it.
+
+```c#
+using System.IO.Compression;
+
+#pragma warning disable 414, 3021
+
+namespace MyApplication
+{
+    [Obsolete("...")]
+    class Program : IInterface
+    {
+        public static List<int> JustDoIt(int count)
+        {
+            Console.WriteLine($"Hello {Name}!");
+            return new List<int>(new int[] { 1, 2, 3 })
+        }
+    }
+}
+```
+
+```css
+@font-face {
+  font-family: Chunkfive; src: url('Chunkfive.otf');
+}
+
+body, .usertext {
+  color: #F0F0F0; background: #600;
+  font-family: Chunkfive, sans;
+}
+
+@import url(print.css);
+@media print {
+  a[href^=http]::after {
+    content: attr(href)
+  }
+}
+```
+
+```javascript
+function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\bno\-highlight\b/) != -1)
+      return process(block, true, 0x0F) +
+             ` class="${cls}"`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+}
+
+export  $initHighlight;
+```
+
+------
+
+# Tables
+
+Colons can be used to align columns.
+
+There must be at least 3 dashes separating each header cell.
+The outer pipes (|) are optional, and you don't need to make the
+raw Markdown line up prettily. You can also use inline Markdown.
+
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+Markdown | Table | with | style
+--- | --- | --- | ---
+*italic* | `incline code` | **bold** | \|
+1 | 2 | 3 | 4
+
+
+| Left-aligned | Center-aligned | Right-aligned |
+| :---         |     :---:      |          ---: |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
+
+
+------
+
+# Blockquotes
+
+> Blockquotes are very handy in email to emulate reply text.
+> This line is part of the same quote.
+
+Quote break.
+
+> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
+
+> Blockquotes can also be nested...
+>> ...by using additional greater-than signs right next to each other...
+> > > ...or with spaces between arrows.
+
+
+------
+
+# Keyboard input
+
+Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy.
+
