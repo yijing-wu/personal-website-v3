@@ -1,1 +1,0 @@
-import{j as a,C as l}from"./index-_PWrHw3R.js";function m({as:t,children:i,className:s,style:o}){const e=t||"span",n={display:"inline",fontFamily:"Calibre-Medium",color:l};return a.jsx(e,{className:s,style:{...n,...o},children:i})}export{m as H};
