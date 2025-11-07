@@ -5,14 +5,14 @@ const myName = "Yijing Wu";
 const myTitle = "";
 
 const myBriefIntro =
-  "I build scalable web and mobile applications, cloud infrastructure, and intelligent systems powered by Generative AI. I love turning complex ideas into reliable, elegant solutions through code.";
+  "I build scalable web and mobile apps, cloud infrastructure, and AI-powered systems. I turn complex ideas into reliable, elegant solutions.";
 // "I’m a software developer specializing in both front-end and back-end web/mobile development. Also familiar with Computer Vision and Signal Processing algorithms. I'm passionate about delivering ideas into reality via coding.";
 
 // About Page
 const myAboutMe = [
-  "Hello! My name is Yijing. Welcome to my page!",
-  "I’m a software engineer with hands-on experience across full-stack development, cloud DevOps, and Generative AI. I enjoy the creative process of engineering — like solving intricate puzzles — where each piece contributes to a seamless, functional system.",
-  "I’m always curious about bridging the gap between AI and software engineering, leveraging LLMs and automation to build smarter, faster, and more collaborative systems.",
+  "Hi — I'm Yijing. Welcome!",
+  "I'm a software engineer experienced in full-stack development, cloud DevOps, and Generative AI. I enjoy solving complex problems and building practical systems.",
+  "I'm passionate about bridging AI and engineering to build faster, smarter, and more collaborative tools.",
 ];
 
 const myEducationList = [

@@ -9,6 +9,10 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    environment: github-pages
+    env:
+      VITE_GOOGLE_ANALYTICS_TRACKING_ID: ${{ secrets.GOOGLE_ANALYTICS_TRACKING_ID }}
+      VITE_MODE: ${{ secrets.VITE_MODE }}
 
     steps:
       - name: Checkout repo
@@ -23,6 +27,11 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Create .env file
+        run: |
+          echo "VITE_GOOGLE_ANALYTICS_TRACKING_ID=${{ secrets.GOOGLE_ANALYTICS_TRACKING_ID }}" > .env
+          echo "VITE_MODE=production" >> .env
+      
       - name: Add CNAME file
         run: |
           echo "www.yijingwu.com" > dist/CNAME

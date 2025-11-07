@@ -16,7 +16,7 @@ export async function initGoogleAnalytics(trackingId?: string) {
   if (initialized) return;
 
   if (mode !== "production") {
-    console.log("GA initGoogleAnalytics mode:", mode);
+    console.info("GA initGoogleAnalytics mode:", mode);
   }
 
   try {
@@ -49,7 +49,7 @@ function safeEvent(eventName: string, params: Record<string, unknown> = {}) {
     if (mode === "production") {
       ga4react.gtag("event", eventName, params);
     } else {
-      console.log(`[GA] event: ${eventName}`, params);
+      console.info(`[GA] event: ${eventName}`, params);
     }
   } catch (error) {
     console.warn(`[GA] Event failed: ${eventName}`, error);
@@ -133,6 +133,10 @@ export function useAnalytics(trackingId?: string) {
   useEffect(() => {
     // prefer explicit trackingId, else read from env (Vite client env vars must be prefixed with VITE_)
     const env = (import.meta.env ?? {}) as Record<string, string | undefined>;
+    if (mode !== "production") {
+      console.info("Mode is missing or not production:", mode);
+    }
+
     const id = trackingId ?? env.VITE_GOOGLE_ANALYTICS_TRACKING_ID;
     // Only run init if id exists and is not empty
     if (id) {
@@ -140,7 +144,9 @@ export function useAnalytics(trackingId?: string) {
     } else {
       // helpful debug message to explain why GA didn't initialize
       console.info(
-        "[GA] tracking id missing; set VITE_GOOGLE_ANALYTICS_TRACKING_ID in your .env to enable analytics"
+        `"[GA] tracking id missing; set VITE_GOOGLE_ANALYTICS_TRACKING_ID in your .env to enable analytics, env: ${JSON.stringify(
+          env
+        )}"`
       );
     }
   }, [trackingId]);
