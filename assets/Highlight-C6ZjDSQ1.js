@@ -1,1 +1,0 @@
-import{j as a,z as l}from"./index-DGd0Jmiy.js";function m({as:t,children:i,className:s,style:o}){const e=t||"span",n={display:"inline",fontFamily:"Calibre-Medium",color:l};return a.jsx(e,{className:s,style:{...n,...o},children:i})}export{m as H};
