@@ -1,4 +1,4 @@
-import{j as e}from"./index-BJ3s3zMN.js";const i={title:"Markdown and MDX Full Example",date:"2025-11-04",summary:"Example blog post demonstrating MDX features and styles.",tags:["mdx","demo"],visible:!1};function l(n){const s={a:"a",blockquote:"blockquote",code:"code",del:"del",em:"em",h1:"h1",h2:"h2",h3:"h3",h4:"h4",h5:"h5",h6:"h6",hr:"hr",img:"img",input:"input",li:"li",ol:"ol",p:"p",pre:"pre",section:"section",span:"span",strong:"strong",sup:"sup",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...n.components};return e.jsxs(e.Fragment,{children:[e.jsx(s.h1,{children:"Headers"}),`
+import{j as e}from"./index-DGd0Jmiy.js";const i={title:"Markdown and MDX Full Example",date:"2025-11-04",summary:"Example blog post demonstrating MDX features and styles.",tags:["mdx","demo"],visible:!1};function l(n){const s={a:"a",blockquote:"blockquote",code:"code",del:"del",em:"em",h1:"h1",h2:"h2",h3:"h3",h4:"h4",h5:"h5",h6:"h6",hr:"hr",img:"img",input:"input",li:"li",ol:"ol",p:"p",pre:"pre",section:"section",span:"span",strong:"strong",sup:"sup",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...n.components};return e.jsxs(e.Fragment,{children:[e.jsx(s.h1,{children:"Headers"}),`
 `,e.jsx(s.h1,{children:"h1 Heading"}),`
 `,e.jsx(s.h2,{children:"h2 Heading"}),`
 `,e.jsx(s.h3,{children:"h3 Heading"}),`
@@ -193,6 +193,8 @@ This line is part of the same quote.`}),`
 `,e.jsx(s.hr,{}),`
 `,e.jsx(s.h1,{children:"Keyboard input"}),`
 `,e.jsxs(s.p,{children:["Press ",e.jsx("kbd",{children:"Ctrl"})," + ",e.jsx("kbd",{children:"C"})," to copy."]}),`
+`,e.jsx(s.hr,{}),`
+`,e.jsx(s.h1,{children:"Math"}),`
 `,e.jsxs(s.section,{"data-footnotes":!0,className:"footnotes",children:[e.jsx(s.h2,{className:"sr-only",id:"footnote-label",children:"Footnotes"}),`
 `,e.jsxs(s.ol,{children:[`
 `,e.jsxs(s.li,{id:"user-content-fn-first",children:[`
